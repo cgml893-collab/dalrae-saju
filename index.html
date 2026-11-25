@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>달래의 2027 신년운세</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE: 따뜻하고 단정한 밤의 상담실, 사람이 말 걸듯
+   IDEA: 등불 아래 사주 노트를 펼쳐 주는 한 사람과의 대화
+   PICTURE: 캐릭터 '달래' 일러스트가 첫 화면의 절반, 숨쉬듯 움직임
+   COLOUR and TYPE: 밤하늘 남색, 한복 아이보리, 리본 홍색 포인트 / 고운바탕 + Noto Sans KR
+   LAYOUT: 한 줄 대화 흐름, 넓은 화면에서는 캐릭터 왼쪽 고정 */
+:root{color-scheme:dark;--bg:#12143a;--bg2:#1c1f52;--ink:#f6efe0;--mute:#b9b6d3;--gold:#e2c27a;--red:#d0434b;--card:#232766;--line:rgba(226,194,122,.28)}
+*{box-sizing:border-box;min-width:0}
+html,body{margin:0;height:100%}
+body{background:radial-gradient(120% 80% at 70% 0%,#2a2d70 0%,var(--bg) 55%,#0b0c26 100%) fixed;color:var(--ink);font:16px/1.6 "Noto Sans KR",system-ui,sans-serif;overflow-x:clip}
+.sky{position:fixed;inset:0;pointer-events:none;z-index:0}
+.sky i{position:absolute;width:2px;height:2px;border-radius:50%;background:#ffe9b0;animation:tw 3s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.15}50%{opacity:1}}
+.wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr);max-width:1080px;margin:0 auto;min-height:100%}
+.stage{position:relative;overflow:hidden;aspect-ratio:688/760;max-height:62vh;margin:0 auto;width:100%;max-width:520px;border-radius:0 0 28px 28px}
+.stage img{position:absolute;inset:0;width:100%;height:auto;animation:breathe 6s ease-in-out infinite;transform-origin:50% 80%}
+@keyframes breathe{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-4px) scale(1.012)}}
+.glow{position:absolute;left:-6%;top:22%;width:42%;height:42%;background:radial-gradient(circle,rgba(255,196,110,.45),transparent 65%);mix-blend-mode:screen;animation:flick 2.6s infinite}
+@keyframes flick{0%,100%{opacity:.75}30%{opacity:1}55%{opacity:.6}80%{opacity:.95}}
+.stage::after{content:"";position:absolute;inset:auto 0 0 0;height:30%;background:linear-gradient(transparent,var(--bg))}
+.tag{position:absolute;right:12px;top:12px;z-index:2;font-size:12px;padding:3px 9px;border-radius:99px;background:rgba(10,10,30,.55);color:var(--mute)}
+.panel{max-width:520px;width:100%;margin:-60px auto 0;padding:0 16px 40px;position:relative;z-index:2}
+h1{font:700 clamp(28px,7vw,40px)/1.1 "Gowun Batang",serif;margin:0 0 6px;text-wrap:balance}
+.sub{color:var(--mute);margin:0 0 18px}
+.chat{display:flex;flex-direction:column;gap:12px}
+.row{display:flex;gap:10px;align-items:flex-end;animation:up .35s ease-out both}
+@keyframes up{from{opacity:0;transform:translateY(10px)}}
+.av{flex:none;width:40px;height:40px;border-radius:50%;background:url(face.webp) center/cover;border:2px solid var(--gold)}
+.bub{background:var(--ink);color:#2a2340;padding:11px 15px;border-radius:18px 18px 18px 4px;font:17px/1.6 "Gowun Batang",serif;max-width:86%;white-space:pre-line}
+.bub.rich{background:rgba(29,33,96,.92);color:var(--ink);border:1px solid var(--line);flex:1;max-width:100%;font-family:'Noto Sans KR',sans-serif}
+.ig{display:inline-block;margin-top:8px;color:var(--gold);font-weight:700}
+.me{justify-content:flex-end}.me .bub{background:var(--red);color:#fff;border-radius:18px 18px 4px 18px;font-family:"Noto Sans KR",sans-serif;font-size:16px}
+.dots span{display:inline-block;width:7px;height:7px;margin:0 2px;border-radius:50%;background:#8a82a8;animation:dt 1s infinite}
+.dots span:nth-child(2){animation-delay:.15s}.dots span:nth-child(3){animation-delay:.3s}
+@keyframes dt{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(-5px);opacity:1}}
+.ctl{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;animation:up .35s both}
+button,.in{font:500 16px "Noto Sans KR",sans-serif;min-height:48px;border-radius:14px;border:1px solid var(--line)}
+button{cursor:pointer;padding:0 18px;background:var(--card);color:var(--ink)}
+button:focus-visible,.in:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+button.main{background:linear-gradient(180deg,#e05058,#b8323b);border:0;color:#fff;font-weight:700;flex:1 1 100%;box-shadow:0 8px 24px rgba(208,67,75,.35)}
+.in{background:#0f1135;color:var(--ink);padding:0 14px;flex:1 1 140px}
+.in::placeholder{color:#7d7aa0}
+.err{color:#ffb4b4;font-size:14px;flex-basis:100%}
+.pillars{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:6px 0 2px}
+.pl{perspective:600px}
+.pl div{background:var(--card);border:1px solid var(--line);border-radius:14px;text-align:center;padding:10px 4px;animation:flip .7s both}
+@keyframes flip{from{transform:rotateY(90deg);opacity:0}}
+.pl small{display:block;color:var(--mute);font-size:13px}
+.pl b{display:block;font:700 30px/1.15 "Gowun Batang",serif}
+.pl em{font-style:normal;font-size:13px}
+.e木{color:#7fd49a}.e火{color:#ff8a7a}.e土{color:#f0c76e}.e金{color:#e9e6f2}.e水{color:#7fb2ff}
+.bars{display:grid;gap:7px;margin:4px 0}
+.bar{display:grid;grid-template-columns:3.2em minmax(0,1fr) 2em;gap:8px;align-items:center;font-size:14px}
+.bar span{height:12px;border-radius:6px;background:currentColor;width:0;transition:width 1s ease-out}
+.bar s{text-decoration:none;text-align:right;color:var(--mute)}
+.card{background:rgba(35,39,102,.75);border:1px solid var(--line);border-radius:18px;padding:14px 16px;animation:up .4s both}
+.card h3{margin:0 0 6px;font:700 18px "Gowun Batang",serif;color:var(--gold)}
+.mon{display:flex;flex-wrap:wrap;gap:6px}
+.mon span{padding:4px 10px;border-radius:99px;font-size:14px;background:#0f1135;border:1px solid var(--line)}
+.fine{color:var(--mute);font-size:13px;margin-top:18px;line-height:1.6}
+.loading{display:grid;place-items:center;gap:10px;padding:20px 0}
+.ring{width:84px;height:84px;border-radius:50%;background:conic-gradient(#7fd49a 0 20%,#ff8a7a 0 40%,#f0c76e 0 60%,#e9e6f2 0 80%,#7fb2ff 0);animation:spin 1.6s linear infinite;mask:radial-gradient(circle,transparent 52%,#000 54%)}
+@keyframes spin{to{transform:rotate(1turn)}}
+@media(min-width:980px){.wrap{grid-template-columns:minmax(0,440px) minmax(0,1fr);gap:40px;padding:32px}.stage{position:sticky;top:32px;max-height:none;aspect-ratio:688/1024;border-radius:28px}.stage::after{display:none}.panel{margin:0;padding-top:20px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="sky" id="sky"></div>
+<main class="wrap">
+  <div class="stage"><img src="dalrae.webp" alt="한복을 입고 사주 노트를 펼친 캐릭터 달래"><div class="glow"></div><span class="tag">AI 캐릭터 · 달래</span></div>
+  <section class="panel">
+    <h1>달래의 2027 정미년 신년운세</h1>
+    <p class="sub">사주 원국과 성격 풀이는 누구나 무료, 2027 운세와 심화 풀이(재물·연애·일·인간관계)는 팔로워 전용이에요.</p>
+    <div class="chat" id="chat" aria-live="polite"></div>
+    <div id="ctl"></div>
+    <p class="fine">재미와 참고용 풀이이며 결과를 보장하지 않습니다. 건강·투자·법률 결정은 전문가와 상의하세요. 사주 계산은 만세력 프로그램이, 말투와 문장은 AI가 만들었습니다. 입력한 생년월일은 이 화면 안에서만 쓰이고 어디에도 저장·전송되지 않습니다.</p>
+  </section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/lunar-javascript@1.7.8/lunar.js"></script>
+<script>
+{
+const $=s=>document.querySelector(s),chat=$('#chat'),ctl=$('#ctl');
+const sky=$('#sky');sky.innerHTML=Array.from({length:60},()=>`<i style="left:${Math.random()*100}%;top:${Math.random()*100}%;animation-delay:${(Math.random()*3).toFixed(2)}s"></i>`).join('');
+const esc=t=>String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const wait=ms=>new Promise(r=>setTimeout(r,ms));
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const scroll=()=>{ctl.scrollIntoView({behavior:reduce?'auto':'smooth',block:'end'})};
+
+async function say(text,html){
+  const r=document.createElement('div');r.className='row';r.innerHTML='<div class="av"></div><div class="bub dots"><span></span><span></span><span></span></div>';chat.appendChild(r);scroll();
+  await wait(reduce?100:Math.min(500+text.length*22,1700));
+  const b=r.querySelector('.bub');b.className='bub';
+  if(html){b.className='bub rich';b.innerHTML=html;scroll();return}
+  if(reduce){b.textContent=text;return}
+  for(let i=1;i<=text.length;i++){b.textContent=text.slice(0,i);if(i%6==0)scroll();await wait(18)}
+  scroll();await wait(250);
+}
+function me(text){const r=document.createElement('div');r.className='row me';r.innerHTML=`<div class="bub">${esc(text)}</div>`;chat.appendChild(r);scroll()}
+function ask(html){ctl.innerHTML=`<div class="ctl">${html}</div>`;scroll();return ctl.firstChild}
+function choose(opts){return new Promise(res=>{const c=ask(opts.map((o,i)=>`<button data-i="${i}" ${i==0&&opts.length==1?'class="main"':''}>${esc(o)}</button>`).join(''));c.onclick=e=>{const b=e.target.closest('button');if(!b)return;ctl.innerHTML='';res(opts[b.dataset.i])}})}
+function field(ph,type,check){return new Promise(res=>{const c=ask(`<input class="in" id="f" type="${type}" placeholder="${ph}" autocomplete="off"><button class="main" id="ok">다음</button><div class="err" id="er"></div>`);const f=$('#f'),go=()=>{const v=f.value.trim(),m=check(v);if(m){$('#er').textContent=m;return}ctl.innerHTML='';res(v)};$('#ok').onclick=go;f.onkeydown=e=>{if(e.key=='Enter')go()};f.focus({preventScroll:true})})}
+
+/* ---- 사주 계산 ---- */
+const STEMS='甲乙丙丁戊己庚辛壬癸',KO_S='갑을병정무기경신임계',BR='子丑寅卯辰巳午未申酉戌亥',KO_B='자축인묘진사오미신유술해';
+const SE={甲:'木',乙:'木',丙:'火',丁:'火',戊:'土',己:'土',庚:'金',辛:'金',壬:'水',癸:'水'};
+const BE={子:'水',丑:'土',寅:'木',卯:'木',辰:'土',巳:'火',午:'火',未:'土',申:'金',酉:'金',戌:'土',亥:'水'};
+const EKO={木:'나무',火:'불',土:'흙',金:'쇠',水:'물'};
+const GEN={木:'火',火:'土',土:'金',金:'水',水:'木'},CTRL={木:'土',土:'水',水:'火',火:'金',金:'木'};
+const ko=g=>KO_S[STEMS.indexOf(g[0])]+KO_B[BR.indexOf(g[1])];
+function tenGod(day,t){const a=SE[day],b=SE[t],same=(STEMS.indexOf(day)%2)==(STEMS.indexOf(t)%2);
+  if(a==b)return same?'비견':'겁재';if(GEN[a]==b)return same?'식신':'상관';if(CTRL[a]==b)return same?'편재':'정재';if(CTRL[b]==a)return same?'편관':'정관';return same?'편인':'정인'}
+const DAY={
+ 甲:['큰 나무','곧게 뻗어 나가려는 사람이에요. 한번 정하면 밀고 가는 힘이 있고, 남을 챙기는 큰형·큰언니 기질이 있어요.'],
+ 乙:['꽃과 덩굴','부드럽지만 끈질긴 사람이에요. 상황에 맞춰 길을 찾아내는 감각이 좋고, 사람 사이에서 빛나요.'],
+ 丙:['한낮의 해','밝고 시원시원한 사람이에요. 있는 자리를 환하게 만들고, 숨기는 것보다 드러내는 게 편해요.'],
+ 丁:['등불','조용히 오래 타는 불 같은 사람이에요. 섬세하고 집중력이 좋아서, 한 사람에게 깊은 온기를 줘요.'],
+ 戊:['큰 산','묵직하고 믿음직한 사람이에요. 쉽게 흔들리지 않아서 주변 사람들이 기대고 싶어 해요.'],
+ 己:['밭의 흙','현실적이고 꼼꼼한 사람이에요. 사람과 일을 길러 내는 재주가 있고, 실속을 잘 챙겨요.'],
+ 庚:['바위와 쇠','결단력 있고 의리 있는 사람이에요. 아닌 건 아니라고 말할 줄 알고, 맡은 일은 끝을 봐요.'],
+ 辛:['보석','예리하고 감각이 좋은 사람이에요. 디테일을 놓치지 않고, 스스로를 다듬을수록 더 빛나요.'],
+ 壬:['큰 바다','생각의 폭이 넓은 사람이에요. 흐름을 읽는 눈이 있고, 새로운 곳으로 움직일 때 운이 열려요.'],
+ 癸:['비와 이슬','차분하고 직관이 좋은 사람이에요. 말없이 스며들어 사람을 살리는, 은근한 힘이 있어요.']};
+const YEAR={
+ 비견:['내 편이 늘어나는 해','비슷한 사람들과 손잡을 일이 많아요. 혼자보다 함께할 때 힘이 붙어요. 다만 고집 대결은 피하세요.'],
+ 겁재:['경쟁 속에서 크는 해','라이벌이 자극이 되는 해예요. 돈이 나가는 일이 생기기 쉬우니 큰 지출과 보증은 한 번 더 생각해요.'],
+ 식신:['재능이 결과로 나오는 해','하던 일이 손에 익고 결과물이 쌓여요. 먹고 즐기는 복도 따라와요. 꾸준히 만드는 사람이 이겨요.'],
+ 상관:['표현이 터지는 해','말과 아이디어가 무기가 되는 해예요. 새로운 시도가 잘 맞아요. 대신 윗사람 앞에서는 말을 한 번 고르세요.'],
+ 편재:['기회가 굴러오는 해','움직이는 만큼 돈과 사람이 들어오는 흐름이에요. 넓게 벌리되, 들어온 건 꼭 챙겨 두세요.'],
+ 정재:['차곡차곡 모으는 해','꾸준한 수입과 안정이 들어오는 해예요. 계획을 세워 모으면 연말에 확실히 남아요.'],
+ 편관:['압박을 실력으로 바꾸는 해','책임과 부담이 커지지만 그만큼 성장해요. 무리한 일정만 조심하면 한 단계 올라서요.'],
+ 정관:['인정받는 해','자리와 이름이 올라가는 흐름이에요. 약속과 규칙을 지킬수록 평가가 좋아져요.'],
+ 편인:['깊이 파고드는 해','공부, 자격, 새 기술을 익히기 좋은 해예요. 혼자만의 시간이 오히려 운을 키워요.'],
+ 정인:['도움이 들어오는 해','좋은 스승과 귀인이 나타나는 해예요. 부탁하고 배우는 걸 부끄러워하지 마세요.']};
+const MONTHS=[['2월','壬'],['3월','癸'],['4월','甲'],['5월','乙'],['6월','丙'],['7월','丁'],['8월','戊'],['9월','己'],['10월','庚'],['11월','辛'],['12월','壬'],['28년 1월','癸']];
+const GOOD={정재:'돈',편재:'돈',정관:'인정',정인:'도움',식신:'성과'},CARE={겁재:'지출',편관:'부담',상관:'말실수'};
+const TIP={木:'아침 산책이나 새 계획 노트',火:'밝은 옷과 사람 많은 자리',土:'정리 정돈과 꾸준한 루틴',金:'불필요한 것 덜어내기',水:'충분한 잠과 혼자 생각하는 시간'};
+
+function calc(y,m,d,lunar,leap,hh,mm){
+  const L=lunar?Lunar.fromYmdHms(y,leap?-m:m,d,hh??12,mm??0,0):Solar.fromYmdHms(y,m,d,hh??12,mm??0,0).getLunar();
+  const e=L.getEightChar();const p=[hh==null?null:e.getTime(),e.getDay(),e.getMonth(),e.getYear()];
+  const cnt={木:0,火:0,土:0,金:0,水:0};p.forEach(g=>{if(g){cnt[SE[g[0]]]++;cnt[BE[g[1]]]++}});
+  const day=p[1][0];const yg=tenGod(day,'丁');
+  const good=[],care=[];MONTHS.forEach(([n,s])=>{const t=tenGod(day,s);if(GOOD[t]&&good.length<3)good.push(n+' · '+GOOD[t]);else if(CARE[t]&&care.length<2)care.push(n+' · '+CARE[t])});
+  const weak=Object.keys(cnt).sort((a,b)=>cnt[a]-cnt[b])[0];
+  return {p,cnt,day,yg,good,care,weak,solar:L.getSolar().toYmd()}
+}
+
+/* ---- 대화 흐름 ---- */
+let name='';
+async function start(){
+  chat.innerHTML='';
+  await say('어서 오세요. 저는 사주 노트를 펼쳐 드리는 달래예요.');
+  await say('2027년은 정미년, 붉은 양의 해예요. 내년에 나한테 어떤 흐름이 오는지 같이 봐요.');
+  await choose(['무료로 풀어보기']);me('풀어볼래요!');
+  await say('좋아요. 제가 뭐라고 불러 드리면 될까요?');
+  name=await field('이름이나 닉네임','text',v=>!v?'불러 드릴 이름을 알려 주세요.':v.length>12?'12자 이내로 적어 주세요.':'');me(name);
+  await say(`${name}님, 반가워요. 태어난 날은 양력이에요, 음력이에요?`);
+  const cal=await choose(['양력','음력','음력 (윤달)']);me(cal);
+  await say('생년월일을 숫자 8자리로 알려 주세요. 예를 들면 19900515처럼요.');
+  const ds=await field('예: 19900515','tel',v=>{if(!/^\d{8}$/.test(v))return '숫자 8자리로 적어 주세요.';const y=+v.slice(0,4),mo=+v.slice(4,6),d=+v.slice(6);if(y<1920||y>2025||mo<1||mo>12||d<1||d>31)return '날짜를 다시 확인해 주세요.';return ''});
+  me(`${ds.slice(0,4)}년 ${+ds.slice(4,6)}월 ${+ds.slice(6)}일`);
+  await say('태어난 시간도 아세요? 모르셔도 괜찮아요. 시간 없이도 충분히 볼 수 있어요.');
+  const tk=await choose(['시간 알아요','몰라요']);me(tk);
+  let hh=null,mm=null;
+  if(tk=='시간 알아요'){await say('24시간 기준으로 알려 주세요. 오후 2시 30분이면 1430이에요.');
+    const t=await field('예: 1430','tel',v=>/^([01]\d|2[0-3])[0-5]\d$/.test(v)?'':'4자리로 적어 주세요. 예: 0730, 1430');hh=+t.slice(0,2);mm=+t.slice(2);me(`${hh}시 ${mm}분`)}
+  let r;try{r=calc(+ds.slice(0,4),+ds.slice(4,6),+ds.slice(6),cal!='양력',cal.includes('윤'),hh,mm)}catch(e){await say('앗, 그 날짜는 달력에 없는 날이에요. 한 번만 다시 확인해 주실래요?');return again()}
+  ctl.innerHTML='<div class="loading"><div class="ring"></div><span class="sub">만세력 펼치는 중…</span></div>';scroll();
+  await wait(reduce?300:2200);ctl.innerHTML='';
+  await show(r);
+}
+const hash=s=>{let h=5381;for(const c of s.replace(/\s/g,'').toUpperCase())h=(h*33+c.charCodeAt(0))>>>0;return h};
+const CODES={y:hash('DAL27'),w:hash('DEEP27')};
+const store={get(k){try{return localStorage.getItem('dalrae_'+k)}catch(e){return null}},set(k){try{localStorage.setItem('dalrae_'+k,'1')}catch(e){}}};
+function unlock(kind,label){return new Promise(res=>{
+  if(store.get(kind)){res();return}
+  const c=ask(`<input class="in" id="f" placeholder="${label} 코드 입력" autocomplete="off" autocapitalize="characters"><button class="main" id="ok">열기</button><div class="err" id="er"></div>`);
+  const f=$('#f'),go=()=>{if(hash(f.value)==CODES[kind]){store.set(kind);ctl.innerHTML='';me('🔑 '+f.value.trim().toUpperCase());res()}else $('#er').textContent='코드가 맞지 않아요. DM으로 받은 코드를 그대로 넣어 주세요.'};
+  $('#ok').onclick=go;f.onkeydown=e=>{if(e.key=='Enter')go()}})}
+const LOCK=(t)=>`<div class="card"><h3>🔒 ${t}</h3>1) <b>@aimarketinggroupkr</b> 팔로우<br>2) 달래 사주 게시물에 <b>아무 댓글</b> 달기<br>3) DM으로 온 열쇠를 아래에 입력<br><a class="ig" href="https://www.instagram.com/aimarketinggroupkr/">인스타로 가기</a></div>`;
+const MONEY={木:'사람과 기획으로 버는 타입이에요. 아이디어를 꾸준히 키워 갈 때 돈이 붙어요.',火:'드러낼수록 버는 타입이에요. 나를 알리는 일, 말과 콘텐츠가 곧 수입이 돼요.',土:'쌓아서 버는 타입이에요. 한 우물을 오래 파고, 자산을 차곡차곡 모을 때 강해요.',金:'정리하고 결단해서 버는 타입이에요. 손해 보는 걸 빨리 끊어 내는 게 재주예요.',水:'흐름을 타서 버는 타입이에요. 정보가 빠르고, 움직이고 연결할 때 기회가 와요.'};
+const LOVE={木:'마음이 생기면 먼저 다가가는 편이에요. 같이 성장할 수 있는 사람에게 끌려요.',火:'표현이 확실한 연애를 해요. 좋으면 숨기지 못하고, 설렘이 식으면 금방 티가 나요.',土:'천천히 믿음을 쌓는 연애를 해요. 한번 마음 주면 오래 가는 사람이에요.',金:'기준이 분명한 연애를 해요. 아닌 사람은 빨리 정리하고, 내 사람에겐 의리를 지켜요.',水:'분위기와 대화로 마음이 움직여요. 겉으론 무심해 보여도 속으로 깊이 생각해요.'};
+const LOVE27={비견:'친구처럼 편한 인연이 연인으로 바뀌기 쉬운 해예요.',겁재:'경쟁자가 생기거나 마음이 흔들릴 일이 있어요. 확실하게 표현하는 쪽이 이겨요.',식신:'편안하고 즐거운 연애운이에요. 맛집, 여행 같은 소소한 데이트에서 인연이 자라요.',상관:'매력이 확 드러나는 해예요. 말 한마디로 시작되지만, 말 한마디로 다툴 수도 있어요.',편재:'새로운 사람을 많이 만나는 해예요. 모임과 소개 자리를 피하지 마세요.',정재:'진지한 만남이 들어오는 해예요. 결혼이나 미래 얘기가 자연스럽게 나와요.',편관:'강하게 끌리는 인연이 오지만 밀당에 지칠 수 있어요. 내 속도를 지키세요.',정관:'믿을 만한 사람과 안정적으로 이어지는 해예요. 소개로 만난 인연이 좋아요.',편인:'혼자만의 시간이 더 끌리는 해예요. 억지로 찾기보다 나를 가꿀 때 인연이 와요.',정인:'나를 챙겨 주는 따뜻한 사람이 다가오는 해예요. 받는 사랑도 연습해 보세요.'};
+const JOB={木:'기획, 교육, 콘텐츠처럼 무언가를 키우는 일',火:'방송, 마케팅, 영업처럼 나를 드러내는 일',土:'운영, 관리, 부동산처럼 쌓고 지키는 일',金:'금융, 기술, 법무처럼 판단과 정확함이 필요한 일',水:'IT, 무역, 연구처럼 정보와 흐름을 다루는 일'};
+const JOB27={비견:'동업이나 팀 프로젝트로 힘이 붙는 해예요. 혼자 다 하려 하지 마세요.',겁재:'경쟁이 치열해지는 해예요. 내 몫을 분명히 정해 두면 손해가 없어요.',식신:'실력이 결과물로 나오는 해예요. 포트폴리오를 쌓기 좋아요.',상관:'이직, 부업, 새 도전 욕구가 커지는 해예요. 준비해서 움직이면 잘 풀려요.',편재:'일이 여러 갈래로 늘어나는 해예요. 부수입 기회도 같이 와요.',정재:'월급과 정해진 수입이 안정되는 해예요. 협상하면 조건이 좋아져요.',편관:'책임이 큰 일이 맡겨지는 해예요. 버티면 경력이 한 단계 올라가요.',정관:'승진, 합격, 자리 이동처럼 공식적인 인정이 오는 해예요.',편인:'공부와 자격증으로 방향을 바꾸기 좋은 해예요.',정인:'좋은 상사와 멘토를 만나는 해예요. 배우는 자리에서 기회가 와요.'};
+const PEOPLE={0:'혼자서도 잘 해내는 독립적인 타입이에요. 다만 힘들 때 도움을 청하는 걸 어려워해요.',1:'사람과 거리 조절을 잘하는 편이에요. 깊게 사귀는 소수의 친구가 큰 힘이 돼요.',2:'주변에 내 편이 꽤 있는 사주예요. 함께할 때 시너지가 나요.',3:'사람이 많이 모이는 사주예요. 대신 내 것을 나눠야 할 일도 많으니 선을 정해 두세요.'};
+const MENU={재물운:'💰 재물운',연애운:'💕 연애운',직업운:'💼 직업·일운',인간관계:'🤝 인간관계'};
+function monthsBy(day,gods){return MONTHS.filter(([n,s])=>gods.includes(tenGod(day,s))).map(([n])=>n).slice(0,3)}
+async function deep(r,k){
+  const de=SE[r.day],md=monthsBy;
+  if(k=='재물운'){const we=CTRL[de],wn=r.cnt[we];
+    await say(`${name}님의 돈은 ${EKO[we]}(${we}) 기운이에요. ${MONEY[de]}`);
+    await say(wn==0?'원국에 재물 기운이 겉으로 드러나 있지 않아요. 돈이 없는 사주가 아니라, 내가 만들어 낼 때 들어오는 구조예요. 월급 하나보다 작은 부수입 통로를 여러 개 두는 게 잘 맞아요.':wn<=2?`재물 기운이 ${wn}개, 알맞게 있어요. 계획만 세우면 꾸준히 불어나는 구조예요.`:`재물 기운이 ${wn}개로 많은 편이에요. 기회는 자주 오는데 다 잡으려다 지칠 수 있어요. 고르고 지키면 크게 남아요.`);
+    await say((we=='火'||we=='土')?`2027년은 불과 흙의 해라 ${name}님 돈 기운과 겹쳐요. 돈이 눈에 보이게 움직이는 해예요. 통장 하나는 꼭 '안 건드리는 통장'으로 두세요.`:`2027년은 ${name}님 돈 기운과 직접 겹치진 않아요. 실력과 이름을 쌓은 게 2028년 돈으로 돌아오는 흐름이에요. 몸값을 올리는 데 쓰세요.`);
+    const m=md(r.day,['정재','편재']);await say(m.length?`돈 기운이 들어오는 달은 ${m.join(', ')}이에요. 계약, 가격 협상, 새 일 시작을 이때 잡아 보세요.`:'돈이 확 몰리는 달보다 고르게 흐르는 편이에요. 매달 조금씩 모으는 방식이 잘 맞아요.')}
+  if(k=='연애운'){await say(`${name}님의 연애 스타일. ${LOVE[de]}`);await say(`2027년 연애운: ${LOVE27[r.yg]}`);
+    const m=md(r.day,['정관','편관','정재','편재']);await say(m.length?`인연이 오가기 쉬운 달은 ${m.join(', ')}이에요. 이때 약속을 미루지 마세요.`:'특정 달보다 일상 속에서 천천히 인연이 자라는 해예요.')}
+  if(k=='직업운'){await say(`${name}님에게 잘 맞는 건 ${JOB[de]}이에요. 지금 하는 일이 달라도, 이 성향을 살리는 방식으로 일하면 덜 지쳐요.`);await say(`2027년 일운: ${JOB27[r.yg]}`);
+    const m=md(r.day,['정관','편관','식신','상관']);await say(m.length?`일에서 움직임이 생기는 달은 ${m.join(', ')}이에요. 면접, 제안, 새 프로젝트는 이때 던져 보세요.`:'큰 변화보다 꾸준히 다지는 해예요.')}
+  if(k=='인간관계'){const n=Math.min(3,Math.max(0,r.cnt[de]-1));await say(PEOPLE[n]);
+    await say(r.yg=='겁재'||r.yg=='상관'?'2027년엔 말과 돈이 얽힌 관계를 조심하세요. 빌려주는 돈은 받을 생각을 하지 않을 만큼만.':r.yg=='정인'||r.yg=='정관'||r.yg=='편인'?'2027년엔 윗사람과 선배 운이 좋아요. 먼저 안부 연락 한 번이 큰 기회로 돌아와요.':'2027년엔 새로운 모임에서 오래 갈 사람을 만나기 쉬워요. 처음 보는 자리를 반겨 보세요.');
+    const m=md(r.day,['겁재','상관']);if(m.length)await say(`${m.join(', ')}에는 오해가 생기기 쉬워요. 단톡방보다 직접 통화가 나아요.`)}
+}
+async function deepMenu(r){
+  const seen=new Set();
+  await say(`다음은 심화 풀이예요. ${name}님이 제일 궁금한 것부터 골라 보세요.`);
+  while(true){
+    const left=Object.keys(MENU).filter(k=>!seen.has(k));
+    const pick=await choose([...left.map(k=>MENU[k]),'여기까지 볼게요']);me(pick);
+    if(pick=='여기까지 볼게요')return;
+    const k=Object.keys(MENU).find(x=>MENU[x]==pick);
+    if(!store.get('w')){await say('',LOCK('심화 풀이 열기'));await say('DM으로 받으신 두 번째 열쇠(심화 풀이 열쇠)를 넣어 주세요. 열쇠 하나로 네 가지가 다 열려요.')}
+    await unlock('w','심화');seen.add(k);await deep(r,k);
+    if(seen.size==4)return;
+    await say('다른 것도 볼까요?');
+  }
+}
+async function show(r){
+  const lab=['시','일','월','년'];
+  await say(`${name}님 사주를 펼쳤어요. 이게 ${name}님이 태어난 순간의 네 기둥이에요.`);
+  await say('',`<div class="pillars">${r.p.map((g,i)=>g?`<div class="pl"><div style="animation-delay:${i*.18}s"><small>${lab[i]}주</small><b class="e${SE[g[0]]}">${g[0]}</b><b class="e${BE[g[1]]}">${g[1]}</b><em>${ko(g)}</em></div></div>`:`<div class="pl"><div><small>시주</small><b>?</b><b>?</b><em>시간 모름</em></div></div>`).join('')}</div>`);
+  const [dn,dt]=DAY[r.day];
+  await say(`일주 윗자리에 있는 ${r.day}(${KO_S[STEMS.indexOf(r.day)]})가 ${name}님 자신이에요. ${name}님은 ${dn} 같은 사람이에요. ${dt}`);
+  const max=Math.max(...Object.values(r.cnt),1);
+  await say('',`<b>나의 오행 비율</b><div class="bars">${Object.keys(r.cnt).map(k=>`<div class="bar e${k}"><b>${k} ${EKO[k]}</b><span data-w="${r.cnt[k]/max*100}"></span><s>${r.cnt[k]}</s></div>`).join('')}</div>`);
+  requestAnimationFrame(()=>document.querySelectorAll('.bar span[data-w]').forEach(s=>{s.style.width=s.dataset.w+'%';s.removeAttribute('data-w')}));
+  const [yt,yx]=YEAR[r.yg];
+  if(!store.get('y')){
+    await say(`여기까지는 누구나 무료예요. 이제 제일 중요한 ${name}님의 2027년 키워드랑, 기회의 달·조심할 달이 남았어요.`);
+    await say('',LOCK('2027 운세 열기'));
+    await say('팔로우하고 게시물에 댓글 남겨 주시면 DM으로 열쇠를 보내 드릴게요. 이 창은 그대로 두셔도 돼요.');
+  }
+  await unlock('y','2027 운세');
+  await say(`열렸어요! ${EKO[r.weak]}(${r.weak}) 기운이 가장 적어요. 내년엔 ${TIP[r.weak]}, 이런 것들이 ${name}님한테 힘이 돼요.`);
+  await say(`그리고 ${name}님에게 2027년은 '${yt}'예요.`);
+  await say(yx);
+  await say('',`<div class="card"><h3>기회의 달</h3><div class="mon">${(r.good.length?r.good:['고르게 무난해요']).map(m=>`<span>${esc(m)}</span>`).join('')}</div></div><div class="card" style="margin-top:8px"><h3>조심할 달</h3><div class="mon">${(r.care.length?r.care:['크게 걸리는 달이 없어요']).map(m=>`<span>${esc(m)}</span>`).join('')}</div></div>`);
+  await deepMenu(r);
+  await say(`오늘 풀이는 여기까지예요. 결과는 정해진 답이 아니라 참고할 지도 정도로 봐 주세요. ${name}님 2027년, 제가 응원할게요.`);
+  const summary=`[달래의 2027 신년운세] ${name}님 · ${r.p.filter(Boolean).reverse().join(' ')} · 나는 '${dn}' · 2027년은 '${yt}' · 기회의 달: ${r.good.join(', ')||'고르게 무난'}`;
+  ask('<button class="main" id="cp">결과 복사해서 친구한테 보내기</button><button id="re">다른 사람도 보기</button>');
+  $('#cp').onclick=async()=>{try{await navigator.clipboard.writeText(summary);$('#cp').textContent='복사했어요!'}catch(e){$('#cp').textContent='복사가 막혀 있어요. 화면을 캡처해 주세요'}};
+  $('#re').onclick=()=>{ctl.innerHTML='';start()};
+}
+async function again(){await choose(['처음부터 다시']);start()}
+start();
+}
+</script>
+</body>
+</html>
