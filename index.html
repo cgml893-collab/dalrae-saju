@@ -160,6 +160,7 @@ async function start(){
   chat.innerHTML='';
   await say('어서 오세요. 저는 사주 노트를 펼쳐 드리는 달래예요.');
   await say('2027년은 정미년, 붉은 양의 해예요. 내년에 나한테 어떤 흐름이 오는지 같이 봐요.');
+  if(VIP||store.get('w'))await say('팔로워 인증이 돼 있어요. 열쇠 없이 2027 운세랑 심화 풀이까지 전부 보실 수 있어요.');
   await choose(['무료로 풀어보기']);me('풀어볼래요!');
   await say('좋아요. 제가 뭐라고 불러 드리면 될까요?');
   name=await field('이름이나 닉네임','text',v=>!v?'불러 드릴 이름을 알려 주세요.':v.length>12?'12자 이내로 적어 주세요.':'');me(name);
@@ -181,6 +182,7 @@ async function start(){
 const hash=s=>{let h=5381;for(const c of s.replace(/\s/g,'').toUpperCase())h=(h*33+c.charCodeAt(0))>>>0;return h};
 const CODES={y:hash('DAL27'),w:hash('DEEP27')};
 const store={get(k){try{return localStorage.getItem('dalrae_'+k)}catch(e){return null}},set(k){try{localStorage.setItem('dalrae_'+k,'1')}catch(e){}}};
+let VIP=false;try{const q=new URLSearchParams(location.search).get('k');if(q&&hash(q)==hash('dlr27f')){store.set('y');store.set('w');VIP=true;history.replaceState(null,'',location.pathname)}}catch(e){}
 function unlock(kind,label){return new Promise(res=>{
   if(store.get(kind)){res();return}
   const c=ask(`<input class="in" id="f" placeholder="${label} 코드 입력" autocomplete="off" autocapitalize="characters"><button class="main" id="ok">열기</button><div class="err" id="er"></div>`);
