@@ -185,10 +185,11 @@ const store={get(k){try{return localStorage.getItem('dalrae_'+k)}catch(e){return
 let VIP=false;try{const q=new URLSearchParams(location.search).get('k');if(q&&hash(q)==hash('dlr27f')){store.set('y');store.set('w');VIP=true;history.replaceState(null,'',location.pathname)}}catch(e){}
 function unlock(kind,label){return new Promise(res=>{
   if(store.get(kind)){res();return}
+  const iv=setInterval(()=>{if(store.get(kind)){clearInterval(iv);ctl.innerHTML='';me('팔로워 인증 완료');res()}},400);
   const c=ask(`<input class="in" id="f" placeholder="${label} 코드 입력" autocomplete="off" autocapitalize="characters"><button class="main" id="ok">열기</button><div class="err" id="er"></div>`);
-  const f=$('#f'),go=()=>{if(hash(f.value)==CODES[kind]){store.set(kind);ctl.innerHTML='';me('🔑 '+f.value.trim().toUpperCase());res()}else $('#er').textContent='코드가 맞지 않아요. DM으로 받은 코드를 그대로 넣어 주세요.'};
+  const f=$('#f'),go=()=>{if(hash(f.value)==CODES[kind]){clearInterval(iv);store.set(kind);ctl.innerHTML='';me('🔑 '+f.value.trim().toUpperCase());res()}else $('#er').textContent='코드가 맞지 않아요. DM으로 받은 코드를 그대로 넣어 주세요.'};
   $('#ok').onclick=go;f.onkeydown=e=>{if(e.key=='Enter')go()}})}
-const LOCK=(t)=>`<div class="card"><h3>🔒 ${t}</h3>1) <b>@aimarketinggroupkr</b> 팔로우<br>2) 달래 사주 게시물에 <b>아무 댓글</b> 달기<br>3) DM으로 온 열쇠를 아래에 입력<br><a class="ig" href="https://www.instagram.com/aimarketinggroupkr/">인스타로 가기</a></div>`;
+const LOCK=(t)=>`<div class="card"><h3>🔒 ${t}</h3>1) <b>@aimarketinggroupkr</b> 팔로우<br>2) 달래 사주 릴스에 <b>아무 댓글</b> 달기<br>3) DM으로 온 <b>달래한테 가기</b> 버튼을 누르면 바로 열려요<br><small style="color:var(--mute)">열쇠 코드를 받으셨다면 아래에 입력해도 돼요</small><br><a class="ig" href="https://www.instagram.com/aimarketinggroupkr/">인스타로 가기</a></div>`;
 const MONEY={木:'사람과 기획으로 버는 타입이에요. 아이디어를 꾸준히 키워 갈 때 돈이 붙어요.',火:'드러낼수록 버는 타입이에요. 나를 알리는 일, 말과 콘텐츠가 곧 수입이 돼요.',土:'쌓아서 버는 타입이에요. 한 우물을 오래 파고, 자산을 차곡차곡 모을 때 강해요.',金:'정리하고 결단해서 버는 타입이에요. 손해 보는 걸 빨리 끊어 내는 게 재주예요.',水:'흐름을 타서 버는 타입이에요. 정보가 빠르고, 움직이고 연결할 때 기회가 와요.'};
 const LOVE={木:'마음이 생기면 먼저 다가가는 편이에요. 같이 성장할 수 있는 사람에게 끌려요.',火:'표현이 확실한 연애를 해요. 좋으면 숨기지 못하고, 설렘이 식으면 금방 티가 나요.',土:'천천히 믿음을 쌓는 연애를 해요. 한번 마음 주면 오래 가는 사람이에요.',金:'기준이 분명한 연애를 해요. 아닌 사람은 빨리 정리하고, 내 사람에겐 의리를 지켜요.',水:'분위기와 대화로 마음이 움직여요. 겉으론 무심해 보여도 속으로 깊이 생각해요.'};
 const LOVE27={비견:'친구처럼 편한 인연이 연인으로 바뀌기 쉬운 해예요.',겁재:'경쟁자가 생기거나 마음이 흔들릴 일이 있어요. 확실하게 표현하는 쪽이 이겨요.',식신:'편안하고 즐거운 연애운이에요. 맛집, 여행 같은 소소한 데이트에서 인연이 자라요.',상관:'매력이 확 드러나는 해예요. 말 한마디로 시작되지만, 말 한마디로 다툴 수도 있어요.',편재:'새로운 사람을 많이 만나는 해예요. 모임과 소개 자리를 피하지 마세요.',정재:'진지한 만남이 들어오는 해예요. 결혼이나 미래 얘기가 자연스럽게 나와요.',편관:'강하게 끌리는 인연이 오지만 밀당에 지칠 수 있어요. 내 속도를 지키세요.',정관:'믿을 만한 사람과 안정적으로 이어지는 해예요. 소개로 만난 인연이 좋아요.',편인:'혼자만의 시간이 더 끌리는 해예요. 억지로 찾기보다 나를 가꿀 때 인연이 와요.',정인:'나를 챙겨 주는 따뜻한 사람이 다가오는 해예요. 받는 사랑도 연습해 보세요.'};
@@ -220,7 +221,7 @@ async function deepMenu(r){
     const pick=await choose([...left.map(k=>MENU[k]),'여기까지 볼게요']);me(pick);
     if(pick=='여기까지 볼게요')return;
     const k=Object.keys(MENU).find(x=>MENU[x]==pick);
-    if(!store.get('w')){await say('',LOCK('심화 풀이 열기'));await say('DM으로 받으신 두 번째 열쇠(심화 풀이 열쇠)를 넣어 주세요. 열쇠 하나로 네 가지가 다 열려요.')}
+    if(!store.get('w')){await say('',LOCK('심화 풀이 열기'));await say('DM 버튼으로 들어오시면 심화 풀이 네 가지가 한 번에 열려요.')}
     await unlock('w','심화');seen.add(k);await deep(r,k);
     if(seen.size==4)return;
     await say('다른 것도 볼까요?');
@@ -239,7 +240,7 @@ async function show(r){
   if(!store.get('y')){
     await say(`여기까지는 누구나 무료예요. 이제 제일 중요한 ${name}님의 2027년 키워드랑, 기회의 달·조심할 달이 남았어요.`);
     await say('',LOCK('2027 운세 열기'));
-    await say('팔로우하고 게시물에 댓글 남겨 주시면 DM으로 열쇠를 보내 드릴게요. 이 창은 그대로 두셔도 돼요.');
+    await say('팔로우하고 릴스에 댓글 하나만 남겨 주세요. DM으로 버튼이 가요. 그 버튼으로 들어오면 바로 다 열려요.');
   }
   await unlock('y','2027 운세');
   await say(`열렸어요! ${EKO[r.weak]}(${r.weak}) 기운이 가장 적어요. 내년엔 ${TIP[r.weak]}, 이런 것들이 ${name}님한테 힘이 돼요.`);
